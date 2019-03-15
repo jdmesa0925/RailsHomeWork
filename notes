@@ -1,0 +1,94 @@
+-----in the terminal
+
+rails new todo
+cd todo
+open gemfile and change sqlite3 -v to '~> 1.3.13'
+bundle
+rails g scaffold todo_item description:string --javascript-engine=js
+open and check migrate folder for
+220204033019310239123?_create_todo_items.rb
+
+-----in the terminal
+
+bundle exec rake db:migrate ?
+
+this creates a table for you
+
+rails s to see the page
+
+check the routes
+
+Routes
+Your “routes” explain how the url paths map to different functionalities in
+your app. Think of them like a map with instructions of where any given request
+should go.
+
+config/routes.rb
+
+----- int eh terminal
+rake routes
+The rake routes task shows me a list of all the routes defined in my config/routes.rb.
+xI get a lot of stuff from that one line of code. Here’s an example of the output:
+
+Prefix	        Verb	   URI Pattern	                  Controller#Action
+todo_items	    GET	    /todo_items(.:format)	          todo_items#index
+new_todo_item	  GET	    /todo_items/new(.:format)	      todo_items#new
+edit_todo_item	GET	    /todo_items/:id/edit(.:format)	todo_items#edit
+                POST	  /todo_items(.:format)	          todo_items#create
+todo_item	      GET	    /todo_items/:id(.:format)	      todo_items#show
+                PATCH	  /todo_items/:id(.:format)	      todo_items#update
+                PUT	    /todo_items/:id(.:format)	      todo_items#update
+                DELETE	/todo_items/:id(.:format)	      todo_items#destroy
+
+The first column in this table represents a nicknape we can use to refer
+to this route throughout our rails app. For example, new_todo_item_url
+would return
+
+            localhost:8000/todo_items/new.
+
+            The second column represents the HTTP method this route applies to.
+
+            The third column represents the url path this route applies to.
+            (note that anything beginning with a colon is actually stored as a
+            parameter in the params hash we learned about yesterday.)
+
+
+            The fourth column represents what controller this route… routes to.
+            The action is simply the method on that controller that is called.
+
+            What resources does is define a RESTful resource. It automatically
+            creates a set of routes that are often used. Just like we learned,
+            a RESTful resource follows a particular pattern:
+
+            GET /todo_items => Gets the list of all todos.
+            GET /todo_items/:id => Gets a single todo.
+            POST /todo_items => Creates a new todo.
+            PUT (or PATCH) /todo_items/:id => Updates a single todo.
+            DELETE /todo_items/:id => Deletes a single todo.
+
+            All this and more are generated for free by declaring that
+            a TodoItem is a “resource” thanks to scaffolding.
+
+
+
+
+
+
+
+            Controllers
+            The controller that Rails generated for me is pretty impressive.
+
+            I’m not going to copy­ and­ paste it all here, but check it out
+            yourself.
+
+            Open app/controllers/todo_items_controller.rb.
+
+            There are index, show, new, edit, create, update, and destroy
+            methods (called “actions”).
+
+            There are private methods (at the bottom).
+
+            There’s even a before_action at the top:
+
+https://learn.wyncode.co/tasks/18259
+--

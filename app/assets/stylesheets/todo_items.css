@@ -1,0 +1,27 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+#todo_item_description {
+  font-style: color: white;
+
+}
+.bob {
+  color: green;
+  margin: 15px;
+  font-style: italic;
+  padding: 1px;
+  font-size: 11px;
+
+}
+
+td {
+  background-color: yellow;
+  padding: 10px;
+  font-size: 12px;
+}
+body {
+  background-color: #ddd;
+  color: pink;
+  margin: 33px;
+}
